@@ -18,7 +18,7 @@ class Level:
     def __init__(self, window: Surface, name: str, game_mode: str, player_score: list[int]):
         self.timeout = TIMEOUT_LEVEL
         if name == "Level3":
-            self.timeout *= 2  # Duração do Level 3 é o dobro
+            self.timeout *= 2
         self.window = window
         self.name = name
         self.game_mode = game_mode
@@ -35,7 +35,7 @@ class Level:
         pygame.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP)  # 100ms
 
     def run(self, player_score: list[int]):
-        pygame.mixer_music.load(f'./asset/{self.name}.mp3')  # Música por nível
+        pygame.mixer_music.load(f'./asset/{self.name}.mp3')
         pygame.mixer_music.set_volume(0.3)
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
@@ -58,7 +58,7 @@ class Level:
                     sys.exit()
                 if event.type == EVENT_ENEMY:
                     if self.name == "Level3":
-                        choice = random.choice(('Enemy1', 'Enemy2', 'Enemy3'))  # Adicionando Enemy3
+                        choice = (('Enemy3'))
                     else:
                         choice = random.choice(('Enemy1', 'Enemy2'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
